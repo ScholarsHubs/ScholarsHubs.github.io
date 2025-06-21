@@ -14,7 +14,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif; /* You can change this later, e.g., 'Roboto', sans-serif; */
+    font-family: 'Roboto', sans-serif; /* Use Roboto for general text */
     line-height: 1.6;
     color: var(--dark-text);
     background-color: #f8f8f8; /* Light background for the overall page */
@@ -58,6 +58,7 @@ ul {
     font-weight: bold;
     text-transform: uppercase;
     white-space: nowrap; /* Prevent logo from breaking */
+    font-family: 'Montserrat', sans-serif; /* Apply Montserrat to logo */
 }
 
 .nav-icons {
@@ -71,6 +72,7 @@ ul {
     border-radius: 5px;
     overflow: hidden;
     margin-right: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Add a subtle shadow */
 }
 
 .search-bar input {
@@ -215,13 +217,16 @@ ul {
 }
 
 .hero-content h1 {
+    font-family: 'Montserrat', sans-serif; /* Apply Montserrat to H1 */
     font-size: 3em; /* Adjusted for mobile-first */
+    font-weight: 700; /* Bold */
     margin-bottom: 20px;
     line-height: 1.1;
 }
 
 .hero-content p {
     font-size: 1.1em; /* Adjusted for mobile-first */
+    font-weight: 300; /* Lighter for description */
     margin-bottom: 30px;
     max-width: 600px; /* Limit paragraph width */
     margin-left: auto;
@@ -240,7 +245,7 @@ ul {
 
 .hero-checklist li {
     font-size: 1.1em;
-    font-weight: bold;
+    font-weight: 700; /* Keep bold for checklist */
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -269,13 +274,15 @@ ul {
     padding: 15px 30px;
     border-radius: 5px;
     font-size: 1.1em;
-    font-weight: bold;
+    font-weight: 700; /* Keep bold for button */
     text-transform: uppercase;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add transition for shadow */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Stronger shadow for the button */
 }
 
 .btn-explore:hover {
     background-color: var(--dark-teal);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Slightly larger shadow on hover */
 }
 
 /* ==================== PLACEHOLDER MAIN CONTENT AREA ==================== */
@@ -290,6 +297,7 @@ ul {
 }
 
 h2 {
+    font-family: 'Montserrat', sans-serif; /* Apply Montserrat to H2 */
     font-size: 2em; /* Adjusted for mobile-first */
     color: var(--dark-text);
     text-align: center;
@@ -328,6 +336,7 @@ h2::after {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif; /* Apply Montserrat to footer logo */
 }
 
 .main-footer p {

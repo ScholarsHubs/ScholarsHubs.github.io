@@ -1,0 +1,35 @@
+   # Git ignore for web projects
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+.localized
+
+# Editor Specific Files
+.vscode/             # VS Code settings
+.idea/               # IntelliJ IDEA, WebStorm, etc.
+*.sublime-project
+*.sublime-workspace
+
+# Node.js (if you ever use npm/yarn for dev tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sass/Less compiled files (if you ever use preprocessors)
+*.css.map
+.sass-cache/
+.lesscache/
+
+# Image optimization tools
+.imagemin/
+
+# Any build or deployment artifacts (if you have a build process)
+/dist/
+/build/
+
+# Backup files
+*.bak
+*.tmp
+*~

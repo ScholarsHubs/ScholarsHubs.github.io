@@ -1,0 +1,421 @@
+/* Basic Reset & Body Styles */
+:root {
+    --primary-teal: #2F7A89; /* A shade of teal from your screenshots */
+    --dark-teal: #235B65; /* A darker teal for backgrounds */
+    --light-gray-text: #666;
+    --white: #ffffff;
+    --dark-text: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* You can change this later, e.g., 'Roboto', sans-serif; */
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: #f8f8f8; /* Light background for the overall page */
+}
+
+.container {
+    max-width: 1200px; /* Max width for your content */
+    margin: 0 auto; /* Center the container */
+    padding: 0 15px; /* Add some padding on the sides for smaller screens */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-teal);
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==================== HEADER STYLES ==================== */
+.main-header {
+    background-color: var(--dark-teal); /* Top dark teal bar */
+    padding: 15px 0;
+    color: var(--white);
+    position: sticky; /* Makes header stick to top on scroll */
+    top: 0;
+    z-index: 1000; /* Ensures header is above other content */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.logo a {
+    color: var(--white);
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap; /* Prevent logo from breaking */
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    background-color: var(--white); /* White background for search input */
+    border-radius: 5px;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.search-bar input {
+    border: none;
+    padding: 8px 10px;
+    font-size: 16px;
+    outline: none; /* Remove outline on focus */
+    color: var(--dark-text);
+    flex-grow: 1; /* Allows input to take available space */
+    min-width: 100px; /* Ensures input doesn't get too small */
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 10px;
+    font-size: 20px; /* Size for unicode icon */
+    color: var(--dark-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger-menu {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 30px;
+    cursor: pointer;
+    display: block; /* Always visible for mobile-first approach */
+}
+
+/* ==================== MOBILE NAVIGATION SIDBAR STYLES ==================== */
+.mobile-nav-sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Initially off-screen */
+    width: 280px; /* Width of the sidebar */
+    height: 100%;
+    background-color: #e0f2f7; /* Lighter background for the sidebar */
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    transition: right 0.3s ease-in-out; /* Smooth transition */
+    z-index: 2000; /* Above header */
+    padding-top: 60px; /* Space from top */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+}
+
+.mobile-nav-sidebar.active {
+    right: 0; /* Slide in */
+}
+
+.close-nav {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: var(--dark-text);
+    cursor: pointer;
+}
+
+.mobile-nav-sidebar ul {
+    padding: 20px;
+}
+
+.mobile-nav-sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.mobile-nav-sidebar ul li a {
+    color: var(--dark-text);
+    font-size: 18px;
+    display: block;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1); /* Subtle separator */
+}
+
+.mobile-nav-sidebar ul li a:hover {
+    color: var(--primary-teal);
+}
+
+.has-submenu .arrow-down {
+    float: right;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu.open .arrow-down {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    display: none; /* Initially hidden */
+    padding-left: 15px;
+    margin-top: 10px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 10px;
+}
+
+.submenu.active {
+    display: block; /* Show when active */
+}
+
+.submenu li {
+    margin-bottom: 10px;
+}
+
+.submenu li a {
+    font-size: 16px;
+    border-bottom: none; /* No extra border for sub-items */
+}
+
+
+/* ==================== HERO SECTION STYLES ==================== */
+.hero-section {
+    /* Placeholder background image. Replace with your own. */
+    /* Download the image from the screenshot and save it in an 'images' folder. */
+    /* Example: url('./images/hero-bg.jpg') */
+    background: url('https://user-images.githubusercontent.com/102905625/291668630-f8f41508-251f-4c54-b40b-7431e78c430e.jpeg') no-repeat center center/cover;
+    color: var(--white);
+    padding: 100px 0; /* Adjust padding as needed for height */
+    text-align: center;
+    position: relative; /* For the overlay */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative; /* Bring content above the overlay */
+    z-index: 2;
+    max-width: 800px; /* Limit content width for readability */
+}
+
+.hero-content h1 {
+    font-size: 3em; /* Adjusted for mobile-first */
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.1em; /* Adjusted for mobile-first */
+    margin-bottom: 30px;
+    max-width: 600px; /* Limit paragraph width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-checklist {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column; /* Stack checklist items on mobile */
+    align-items: center;
+    gap: 10px 0; /* Spacing between stacked items */
+}
+
+.hero-checklist li {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.hero-checklist li span {
+    color: lightgreen; /* Checkmark color */
+    font-size: 1.5em;
+    margin-right: 8px;
+}
+
+.first-time-cta {
+    margin-top: 40px;
+}
+
+.first-time-cta p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.btn-explore {
+    display: inline-block;
+    background-color: var(--primary-teal); /* Teal button */
+    color: var(--white);
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.btn-explore:hover {
+    background-color: var(--dark-teal);
+}
+
+/* ==================== PLACEHOLDER MAIN CONTENT AREA ==================== */
+.main-content-area {
+    padding: 40px 0;
+    background-color: var(--white);
+}
+
+.latest-article-section,
+.most-popular-section {
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-size: 2em; /* Adjusted for mobile-first */
+    color: var(--dark-text);
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-teal);
+}
+
+
+/* ==================== FOOTER STYLES ==================== */
+.main-footer {
+    background-color: var(--dark-teal);
+    color: var(--white);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.main-footer p {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.social-links {
+    margin: 20px 0;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.social-links img {
+    width: 28px; /* Size for social icons */
+    height: 28px;
+    /* filter: invert(100%);  Remove this if your icons are already white or you download white ones */
+    transition: transform 0.2s ease;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+}
+
+.copyright {
+    font-size: 0.9em;
+    margin-top: 15px;
+    opacity: 0.8;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.footer-links li {
+    margin: 0 15px 10px;
+}
+
+.footer-links li a {
+    color: var(--white);
+    font-size: 0.95em;
+    opacity: 0.9;
+}
+
+.footer-links li a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* ==================== MEDIA QUERIES (Responsiveness for Larger Screens) ==================== */
+
+/* For screens larger than 768px (tablets and desktops) */
+@media (min-width: 768px) {
+    .header-container {
+        flex-direction: row; /* Ensure elements are in a row */
+    }
+
+    .logo {
+        margin-bottom: 0;
+    }
+
+    .search-bar {
+        margin-bottom: 0;
+        width: auto; /* Reset width */
+        max-width: none; /* Reset max-width */
+    }
+
+    .hero-content h1 {
+        font-size: 4em; /* Larger heading on desktop */
+    }
+
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    .hero-checklist {
+        flex-direction: row; /* Arrange checklist items in a row */
+        justify-content: center;
+        gap: 15px 30px; /* Space items out */
+    }
+
+    h2 {
+        font-size: 2.5em;
+    }
+}

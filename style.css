@@ -1,4 +1,9 @@
 /* Basic Reset & Body Styles */
+html {
+    width: 100%;
+    overflow-x: hidden; /* Prevents horizontal scrollbars and content bleeding */
+}
+
 :root {
     --primary-teal: #2F7A89; /* A shade of teal from your screenshots */
     --dark-teal: #235B65; /* A darker teal for backgrounds */
@@ -14,6 +19,7 @@
 }
 
 body {
+    width: 100%; /* Ensure body takes full width */
     font-family: 'Roboto', sans-serif; /* Use Roboto for general text */
     line-height: 1.6;
     color: var(--dark-text);
@@ -37,7 +43,7 @@ ul {
 
 /* ==================== HEADER STYLES ==================== */
 .main-header {
-    background-color: var(--dark-teal); /* Top dark teal bar */
+    background-color: rgba(35, 91, 101, 0.95); /* Using rgba for 95% opacity of --dark-teal (for "floating" effect) */
     padding: 15px 0;
     color: var(--white);
     position: sticky; /* Makes header stick to top on scroll */
@@ -189,14 +195,13 @@ ul {
 
 /* ==================== HERO SECTION STYLES ==================== */
 .hero-section {
-    /* Placeholder background image. Replace with your own. */
-    /* Download the image from the screenshot and save it in an 'images' folder. */
-    /* Example: url('./images/hero-bg.jpg') */
-    background: url('https://user-images.githubusercontent.com/102905625/291668630-f8f41508-251f-4c54-b40b-7431e78c430e.jpeg') no-repeat center center/cover;
+    /* New background image URL (more like the screenshot) */
+    background: url('https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcwMzV8MHwxfHNlYXJjaHw3fHdvcmtpbmd8ZW58MHx8fHwxNzE4OTkxNjcyfDA&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
     color: var(--white);
-    padding: 100px 0; /* Adjust padding as needed for height */
+    padding: 100px 0;
     text-align: center;
-    position: relative; /* For the overlay */
+    position: relative;
+    filter: brightness(0.8) blur(1px); /* Darken slightly and blur the image */
 }
 
 .hero-section::before {
@@ -206,7 +211,7 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    background-color: rgba(0, 0, 0, 0.45); /* Slightly darker overlay for contrast */
     z-index: 1;
 }
 
@@ -285,10 +290,11 @@ ul {
     box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Slightly larger shadow on hover */
 }
 
-/* ==================== PLACEHOLDER MAIN CONTENT AREA ==================== */
+/* ==================== MAIN CONTENT AREA ==================== */
 .main-content-area {
     padding: 40px 0;
     background-color: var(--white);
+    width: 100%; /* Explicitly ensure it takes full width */
 }
 
 .latest-article-section,
@@ -317,6 +323,88 @@ h2::after {
     background-color: var(--primary-teal);
 }
 
+/* ==================== ARTICLE CARD STYLES ==================== */
+.articles-grid {
+    display: grid; /* Use CSS Grid for layout */
+    gap: 30px; /* Space between cards */
+    grid-template-columns: 1fr; /* Default to single column on mobile */
+}
+
+.article-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden; /* Ensures image corners match card corners */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Subtle "floating" shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex; /* For image and content side-by-side on mobile */
+    flex-direction: column; /* Stack image and content on mobile initially */
+    text-align: left; /* Align text within card */
+}
+
+.article-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15); /* More pronounced shadow on hover */
+}
+
+.article-image {
+    position: relative;
+    width: 100%; /* Full width image for mobile card */
+    height: 200px; /* Fixed height for consistency */
+    overflow: hidden;
+    flex-shrink: 0; /* Prevent image from shrinking on flex container */
+}
+
+.article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    display: block; /* Remove extra space below image */
+}
+
+.category-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 10; /* Ensure it's above the image */
+}
+
+.article-content {
+    padding: 20px;
+    flex-grow: 1; /* Allows content to take available space */
+}
+
+.article-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em; /* Article title size */
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--dark-teal); /* Darker title color */
+}
+
+.article-content p {
+    font-size: 0.95em;
+    color: var(--light-gray-text);
+    margin-bottom: 15px;
+}
+
+.read-more {
+    display: inline-block;
+    color: var(--primary-teal);
+    font-weight: bold;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
 
 /* ==================== FOOTER STYLES ==================== */
 .main-footer {
@@ -392,7 +480,66 @@ h2::after {
     text-decoration: underline;
 }
 
-/* ==================== MEDIA QUERIES (Responsiveness for Larger Screens) ==================== */
+/* ==================== MEDIA QUERIES (Responsiveness) ==================== */
+
+/* For screens smaller than 768px (common tablet breakpoint) */
+@media (max-width: 767px) { /* Changed to max-width to define mobile styles */
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .nav-icons {
+        flex-direction: column; /* Stack search and hamburger */
+        width: 100%;
+        align-items: center;
+    }
+
+    .search-bar {
+        margin-right: 0; /* Remove margin on smaller screens */
+        margin-bottom: 10px; /* Add space below search bar */
+        width: 100%; /* Full width search bar */
+        max-width: 300px; /* Limit width */
+    }
+
+    .search-bar input {
+        flex-grow: 1; /* Allow input to take available space */
+    }
+
+    .hamburger-menu {
+        margin-top: 5px; /* Small space above hamburger */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em; /* Smaller heading on mobile */
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .hero-checklist {
+        flex-direction: column; /* Stack checklist items */
+        align-items: center;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    /* Mobile specific article card layout: Image and text are stacked within the card */
+    .article-card {
+        flex-direction: column;
+    }
+    .article-image {
+        height: 200px; /* Keep fixed height for mobile images */
+    }
+}
+
 
 /* For screens larger than 768px (tablets and desktops) */
 @media (min-width: 768px) {
@@ -419,12 +566,69 @@ h2::after {
     }
 
     .hero-checklist {
-        flex-direction: row; /* Arrange checklist items in a row */
+        flex-direction: row;
         justify-content: center;
-        gap: 15px 30px; /* Space items out */
+        gap: 15px 30px;
     }
 
     h2 {
         font-size: 2.5em;
+    }
+
+    /* Desktop layout for article cards */
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr); /* Default to 2 columns on larger screens */
+        max-width: 100%; /* Ensure grid takes full container width */
+    }
+
+    /* Special style for the "Latest Article" (first section) */
+    .latest-article-section .articles-grid {
+        grid-template-columns: 1fr; /* Keep the latest article full width */
+        max-width: 900px; /* Constrain the width for a prominent single article */
+        margin: 0 auto; /* Center it */
+    }
+
+    .latest-article-section .article-card {
+        flex-direction: row; /* Image and content side-by-side for the latest article */
+        align-items: stretch; /* Stretch content to fill height */
+    }
+
+    .latest-article-section .article-image {
+        width: 40%; /* Image takes 40% of the card width */
+        height: auto; /* Auto height to maintain aspect ratio within flex container */
+    }
+
+    .latest-article-section .article-content {
+        width: 60%; /* Content takes 60% of the card width */
+        display: flex; /* Use flex to align content within its container */
+        flex-direction: column;
+        justify-content: center; /* Center content vertically if space allows */
+    }
+    .latest-article-section .article-content h3 {
+        font-size: 1.8em; /* Larger title for main article */
+    }
+}
+
+/* For even larger screens (e.g., larger desktops, 3 columns for general articles) */
+@media (min-width: 1024px) {
+    .articles-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for all general article grids */
+    }
+
+    /* Ensure the latest article remains prominent and single column */
+    .latest-article-section .articles-grid {
+        grid-template-columns: 1fr; /* Override back to 1 column for latest */
+        max-width: 900px; /* Keep constrained width */
+        margin: 0 auto;
+    }
+}
+
+/* For screens larger than 1200px (to fully utilize max-width on .container) */
+@media (min-width: 1200px) {
+    .articles-grid {
+        grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns */
+    }
+    .latest-article-section .articles-grid {
+        max-width: 900px; /* Consistent max width for latest */
     }
 }

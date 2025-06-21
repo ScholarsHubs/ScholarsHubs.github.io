@@ -4,12 +4,16 @@ html {
     overflow-x: hidden; /* Prevents horizontal scrollbars and content bleeding */
 }
 
+/* --- UPDATED CSS Variables for PURPLE and LILAC Colors --- */
 :root {
-    --primary-teal: #2F7A89; /* A shade of teal from your screenshots */
-    --dark-teal: #235B65; /* A darker teal for backgrounds */
-    --light-gray-text: #666;
+    --primary-purple: #800080;   /* Standard Purple */
+    --accent-purple: #A020F0;    /* Purple Heart */
+    --dark-purple: #6A0DAD;      /* Dark Orchid */
+    --light-lilac: #C8A2C8;      /* Standard Lilac */
+    --medium-lilac: #B666D2;     /* Light Lilac */
     --white: #ffffff;
     --dark-text: #333;
+    --light-gray-text: #666; /* Keeping for general content */
 }
 
 * {
@@ -34,7 +38,7 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--primary-teal);
+    color: var(--primary-purple); /* Using primary purple for links */
 }
 
 ul {
@@ -43,7 +47,8 @@ ul {
 
 /* ==================== HEADER STYLES ==================== */
 .main-header {
-    background-color: rgba(35, 91, 101, 0.95); /* Using rgba for 95% opacity of --dark-teal (for "floating" effect) */
+    /* Using rgba for 95% opacity of --dark-purple (for "floating" effect) */
+    background-color: rgba(106, 13, 173, 0.95);
     padding: 15px 0;
     color: var(--white);
     position: sticky; /* Makes header stick to top on scroll */
@@ -119,7 +124,8 @@ ul {
     right: -300px; /* Initially off-screen */
     width: 280px; /* Width of the sidebar */
     height: 100%;
-    background-color: #e0f2f7; /* Lighter background for the sidebar */
+    /* Lighter background for the sidebar, using lilac */
+    background-color: var(--light-lilac); 
     box-shadow: -2px 0 5px rgba(0,0,0,0.2);
     transition: right 0.3s ease-in-out; /* Smooth transition */
     z-index: 2000; /* Above header */
@@ -159,7 +165,7 @@ ul {
 }
 
 .mobile-nav-sidebar ul li a:hover {
-    color: var(--primary-teal);
+    color: var(--primary-purple); /* Using primary purple on hover */
 }
 
 .has-submenu .arrow-down {
@@ -196,24 +202,16 @@ ul {
 /* ==================== HERO SECTION STYLES ==================== */
 .hero-section {
     /* New background image URL (more like the screenshot) */
-    background: url('https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcwMzV8MHwxfHNlYXJjaHw3fHdvcmtpbmd8ZW58MHx8fHwxNzE4OTkxNjcyfDA&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), /* Darker overlay for contrast */
+                url('https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcwMzV8MHwxfHNlYXJjaHw3fHdvcmtpbmd8ZW58MHx8fHwxNzE4OTkxNjcyfDA&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
     color: var(--white);
     padding: 100px 0;
     text-align: center;
     position: relative;
-    filter: brightness(0.8) blur(1px); /* Darken slightly and blur the image */
+    /* Removed filter: brightness(0.8) blur(1px); as the overlay should be enough */
 }
 
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.45); /* Slightly darker overlay for contrast */
-    z-index: 1;
-}
+/* Removed ::before pseudo-element as linear-gradient handles overlay */
 
 .hero-content {
     position: relative; /* Bring content above the overlay */
@@ -257,7 +255,7 @@ ul {
 }
 
 .hero-checklist li span {
-    color: lightgreen; /* Checkmark color */
+    color: var(--light-lilac); /* Using lilac for checkmark color */
     font-size: 1.5em;
     margin-right: 8px;
 }
@@ -274,7 +272,7 @@ ul {
 
 .btn-explore {
     display: inline-block;
-    background-color: var(--primary-teal); /* Teal button */
+    background-color: var(--accent-purple); /* Accent purple for button */
     color: var(--white);
     padding: 15px 30px;
     border-radius: 5px;
@@ -286,8 +284,50 @@ ul {
 }
 
 .btn-explore:hover {
-    background-color: var(--dark-teal);
+    background-color: var(--primary-purple); /* Darker purple on hover */
     box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Slightly larger shadow on hover */
+}
+
+
+/* --- ADDED ANIMATION KEYFRAMES AND STYLES --- */
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(50px); /* Start 50px below its final position */
+        opacity: 0; /* Start completely transparent */
+    }
+    100% {
+        transform: translateY(0); /* End at its original vertical position */
+        opacity: 1; /* End fully opaque */
+    }
+}
+
+/* Applying Animations with Staggered Delays */
+.animated-element {
+    opacity: 0; /* Hide elements initially */
+    transform: translateY(50px); /* Position them off-screen initially */
+    animation: slideInFromBottom 0.8s ease-out forwards; /* Base animation */
+}
+
+/* Individual delays for a staggered effect - these override/add to base animated-element */
+.animated-heading {
+    animation-delay: 0.3s;
+}
+
+.animated-paragraph {
+    animation-delay: 0.6s;
+}
+
+.animated-list-item {
+    /* Delays are applied directly in HTML for flexibility, see index.html */
+    /* animation-delay is here as a fallback/example if not using inline styles */
+}
+
+.animated-small-text {
+    /* Delay is applied directly in HTML */
+}
+
+.animated-button {
+    /* Delay is applied directly in HTML */
 }
 
 /* ==================== MAIN CONTENT AREA ==================== */
@@ -320,7 +360,7 @@ h2::after {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background-color: var(--primary-teal);
+    background-color: var(--primary-purple); /* Using primary purple */
 }
 
 /* ==================== ARTICLE CARD STYLES ==================== */
@@ -365,7 +405,7 @@ h2::after {
     position: absolute;
     top: 15px;
     left: 15px;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+    background-color: var(--accent-purple); /* Using accent purple */
     color: var(--white);
     padding: 5px 10px;
     border-radius: 5px;
@@ -385,7 +425,7 @@ h2::after {
     font-size: 1.5em; /* Article title size */
     font-weight: 700;
     margin-bottom: 10px;
-    color: var(--dark-teal); /* Darker title color */
+    color: var(--dark-purple); /* Darker title color */
 }
 
 .article-content p {
@@ -396,7 +436,7 @@ h2::after {
 
 .read-more {
     display: inline-block;
-    color: var(--primary-teal);
+    color: var(--primary-purple); /* Using primary purple for links */
     font-weight: bold;
     font-size: 0.9em;
     text-transform: uppercase;
@@ -408,7 +448,7 @@ h2::after {
 
 /* ==================== FOOTER STYLES ==================== */
 .main-footer {
-    background-color: var(--dark-teal);
+    background-color: var(--dark-purple); /* Dark purple footer background */
     color: var(--white);
     padding: 40px 0;
     text-align: center;

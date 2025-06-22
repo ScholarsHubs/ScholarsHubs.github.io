@@ -64,13 +64,18 @@ ul {
 }
 
 .logo a {
-    color: var(--white);
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    white-space: nowrap; /* Prevent logo from breaking */
-    font-family: 'Montserrat', sans-serif; /* Apply Montserrat to logo */
+    display: block; /* Make the link a block element */
+    text-decoration: none; /* Remove underline from link */
+    line-height: 0; /* Remove extra space below image inside link */
 }
+
+/* NEW: Styles for the full logo image */
+.full-logo-image {
+    height: 60px; /* This will be the DISPLAY height of your entire logo. Adjust as needed! */
+    width: auto; /* This is crucial to maintain the logo's aspect ratio (768x301px) */
+    display: block; /* Ensures it behaves as an image block */
+}
+
 
 .nav-icons {
     display: flex;
@@ -208,10 +213,8 @@ ul {
     padding: 100px 0;
     text-align: center;
     position: relative;
-    /* Removed filter: brightness(0.8) blur(1px); as the overlay should be enough */
+    /* Removed filter: brightness(0.8) blur(1px); as the linear-gradient handles overlay */
 }
-
-/* Removed ::before pseudo-element as linear-gradient handles overlay */
 
 .hero-content {
     position: relative; /* Bring content above the overlay */

@@ -64,16 +64,34 @@ ul {
 }
 
 .logo a {
-    display: block; /* Make the link a block element */
-    text-decoration: none; /* Remove underline from link */
-    line-height: 0; /* Remove extra space below image inside link */
+    text-decoration: none;
+    display: flex; /* Use flexbox to arrange icon and text */
+    flex-direction: column; /* Stack them vertically */
+    align-items: center; /* Center horizontally within the column */
+    color: var(--white); /* Ensure the text is white */
+    font-family: 'Montserrat', sans-serif; /* Keep Montserrat for the logo text */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Keep shadow for readability */
 }
 
-/* NEW: Styles for the full logo image */
-.full-logo-image {
-    height: 60px; /* This will be the DISPLAY height of your entire logo. Adjust as needed! */
-    width: auto; /* This is crucial to maintain the logo's aspect ratio (768x301px) */
-    display: block; /* Ensures it behaves as an image block */
+.logo-icon {
+    height: 45px; /* Adjust the display height of your icon. Start with 45px and fine-tune. */
+    width: auto; /* Maintain aspect ratio */
+    margin-bottom: 2px; /* Small space between icon and text */
+}
+
+.logo-text {
+    font-size: 1.2em; /* Adjust font size for "SCHOLARS" (e.g., 1.2em to 1.5em) */
+    font-weight: 700; /* Use Montserrat Bold as per your logo design */
+    text-transform: uppercase; /* Makes text uppercase */
+    white-space: nowrap; /* Prevent logo text from breaking */
+    letter-spacing: 1px; /* Add slight letter spacing if it matches your design */
+}
+
+.logo-text.sub-text { /* Style for the "HUBS" part */
+    font-size: 0.8em; /* Smaller size for "HUBS" as in your design */
+    margin-top: -3px; /* Pull it slightly closer to "SCHOLARS" */
+    letter-spacing: 2px; /* Slightly more spaced out for "HUBS" */
+    font-weight: 400; /* Lighter weight for "HUBS" if desired */
 }
 
 
@@ -130,7 +148,7 @@ ul {
     width: 280px; /* Width of the sidebar */
     height: 100%;
     /* Lighter background for the sidebar, using lilac */
-    background-color: var(--light-lilac); 
+    background-color: var(--light-lilac);
     box-shadow: -2px 0 5px rgba(0,0,0,0.2);
     transition: right 0.3s ease-in-out; /* Smooth transition */
     z-index: 2000; /* Above header */

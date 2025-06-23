@@ -481,7 +481,7 @@ h2::after {
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px; /* Added internal padding to the grid container */
+    padding: 0 15px;
 }
 
 .footer-col {
@@ -490,28 +490,8 @@ h2::after {
     align-items: center; /* Center items in each column on mobile */
 }
 
-.footer-col-info {
-    /* Logo and email column */
-}
-
-.footer-col-social {
-    /* Social icons and copyright column */
-}
-
-.footer-col-links {
-    /* Footer links column */
-}
-
-.footer-col-links ul {
-    padding: 0;
-}
-
-.footer-col-links ul li {
-    margin-bottom: 10px;
-}
-
 .footer-logo-image {
-    height: 120px; /* Adjust this height to match your desired size */
+    height: 120px;
     width: auto;
     display: block;
     margin: 0 auto 15px auto;
@@ -523,7 +503,7 @@ h2::after {
 }
 
 .main-footer p a {
-    color: var(--light-lilac); /* Ensures email link is light lilac */
+    color: var(--light-lilac);
     text-decoration: none;
 }
 .main-footer p a:hover {
@@ -542,10 +522,6 @@ h2::after {
 .social-links img {
     width: 28px;
     height: 28px;
-    /* IMPORTANT: Removed filter: invert(100%);
-       You need to replace the image src with light-colored (e.g., light purple or white) icons,
-       or use an SVG/font icon library that allows coloring via CSS 'color' property.
-    */
     transition: transform 0.2s ease;
 }
 
@@ -559,7 +535,7 @@ h2::after {
 }
 
 .footer-col-links ul li a {
-    color: var(--light-lilac); /* Ensures links are light lilac */
+    color: var(--light-lilac);
     opacity: 1; /* Set opacity to 1 for full visibility */
     text-decoration: none;
 }
@@ -627,7 +603,7 @@ h2::after {
     }
 
     .footer-logo-image {
-        height: 100px;
+        height: 100px; /* Slightly smaller on mobile */
     }
 
     .footer-content {
@@ -717,28 +693,23 @@ h2::after {
         font-size: 1.8em;
     }
 
-    /* Footer: 3-column layout for desktop */
+    /* Footer: 3-column layout for desktop (reverted from 4) */
     .footer-content {
-        grid-template-columns: 1.5fr 1fr 1.5fr; /* Adjust column widths */
-        text-align: left; /* Default alignment for columns */
-        align-items: flex-start; /* Align items to top within grid cells */
+        grid-template-columns: 1.5fr 1fr 1.5fr; /* 3 columns now */
+        text-align: center; /* Center content of the grid overall */
+        align-items: flex-start; /* Align columns to the top */
+        gap: 20px;
     }
     .footer-col {
-        align-items: flex-start; /* Align contents of each column to the start (left) */
+        align-items: center; /* Center content WITHIN each column */
         margin-bottom: 0;
-        padding: 0 10px; /* Added internal padding to pull content away from grid cell edges */
+        padding: 0 10px; /* Internal padding for content */
     }
-    .footer-col-info {
-        /* Logo and email align left (default flex-start) */
-    }
-    .footer-col-social {
-        text-align: center; /* Center social icons and copyright */
-        align-items: center; /* Center flex items horizontally */
-    }
-    .footer-col-links {
-        text-align: right; /* Align links to right */
-        align-items: flex-end; /* Align flex items to right */
-    }
+    /* Removed specific left/right alignments to make all columns centered */
+    .footer-col-info { /* Logo and email column */ }
+    .footer-col-social { /* Social icons and copyright column */ }
+    .footer-col-links { /* Footer links column */ }
+
     .footer-col-links ul {
         display: block;
         padding: 0;

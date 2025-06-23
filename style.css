@@ -469,31 +469,65 @@ h2::after {
 
 /* ==================== FOOTER STYLES ==================== */
 .main-footer {
-    /* UPDATED: Footer background color to DARK PURPLE */
     background-color: var(--dark-purple);
-    /* UPDATED: Default text color to LIGHT LILAC for all elements */
-    color: var(--light-lilac);
+    color: var(--light-lilac); /* Default text color for all elements in footer */
     padding: 40px 0;
-    text-align: center;
+    text-align: center; /* Center content by default (for mobile primarily) */
 }
 
 .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column on mobile */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px; /* Added internal padding to the grid container */
 }
 
-/* Styles for the footer logo image */
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items in each column on mobile */
+}
+
+.footer-col-info {
+    /* Logo and email column */
+}
+
+.footer-col-social {
+    /* Social icons and copyright column */
+}
+
+.footer-col-links {
+    /* Footer links column */
+}
+
+.footer-col-links ul {
+    padding: 0;
+}
+
+.footer-col-links ul li {
+    margin-bottom: 10px;
+}
+
 .footer-logo-image {
-    height: 120px; /* Adjust this height to match your desired size for the footer logo */
-    width: auto; /* Maintain aspect ratio */
-    display: block; /* Ensure it behaves as a block */
-    margin: 0 auto 15px auto; /* Center it and add space below */
+    height: 120px; /* Adjust this height to match your desired size */
+    width: auto;
+    display: block;
+    margin: 0 auto 15px auto;
 }
 
 .main-footer p {
     font-size: 1em;
     margin-bottom: 10px;
+}
+
+.main-footer p a {
+    color: var(--light-lilac); /* Ensures email link is light lilac */
+    text-decoration: none;
+}
+.main-footer p a:hover {
+    text-decoration: underline;
 }
 
 .social-links {
@@ -506,10 +540,9 @@ h2::after {
 }
 
 .social-links img {
-    width: 28px; /* Size for social icons */
+    width: 28px;
     height: 28px;
     /* IMPORTANT: Removed filter: invert(100%);
-       If your social icons are dark, they will be hard to see on dark purple.
        You need to replace the image src with light-colored (e.g., light purple or white) icons,
        or use an SVG/font icon library that allows coloring via CSS 'color' property.
     */
@@ -522,36 +555,23 @@ h2::after {
 
 .copyright {
     font-size: 0.9em;
-    margin-top: 15px;
-    opacity: 0.8;
+    opacity: 1; /* Set opacity to 1 for full visibility */
 }
 
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.footer-links li {
-    margin: 0 15px 10px;
-}
-
-.footer-links li a {
-    color: var(--light-lilac); /* Using lighter lilac for footer links */
+.footer-col-links ul li a {
+    color: var(--light-lilac); /* Ensures links are light lilac */
+    opacity: 1; /* Set opacity to 1 for full visibility */
     text-decoration: none;
-    opacity: 0.9;
 }
 
-.footer-links li a:hover {
+.footer-col-links ul li a:hover {
     opacity: 1;
     text-decoration: underline;
 }
 
 /* ==================== MEDIA QUERIES (Responsiveness) ==================== */
 
-/* For screens smaller than 768px (common tablet breakpoint) */
-@media (max-width: 767px) { /* Changed to max-width to define mobile styles */
+@media (max-width: 767px) {
     .header-container {
         flex-direction: column;
         text-align: center;
@@ -562,28 +582,28 @@ h2::after {
     }
 
     .nav-icons {
-        flex-direction: column; /* Stack search and hamburger */
+        flex-direction: column;
         width: 100%;
         align-items: center;
     }
 
     .search-bar {
-        margin-right: 0; /* Remove margin on smaller screens */
-        margin-bottom: 10px; /* Add space below search bar */
-        width: 100%; /* Full width search bar */
-        max-width: 300px; /* Limit width */
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 300px;
     }
 
     .search-bar input {
-        flex-grow: 1; /* Allow input to take available space */
+        flex-grow: 1;
     }
 
     .hamburger-menu {
-        margin-top: 5px; /* Small space above hamburger */
+        margin-top: 5px;
     }
 
     .hero-content h1 {
-        font-size: 2.5em; /* Smaller heading on mobile */
+        font-size: 2.5em;
     }
 
     .hero-content p {
@@ -591,7 +611,7 @@ h2::after {
     }
 
     .hero-checklist {
-        flex-direction: column; /* Stack checklist items */
+        flex-direction: column;
         align-items: center;
     }
 
@@ -599,24 +619,43 @@ h2::after {
         font-size: 2em;
     }
 
-    /* Mobile specific article card layout: Image and text are stacked within the card */
     .article-card {
         flex-direction: column;
     }
     .article-image {
-        height: 200px; /* Keep fixed height for mobile images */
+        height: 200px;
     }
 
     .footer-logo-image {
-        height: 100px; /* Slightly smaller on mobile */
+        height: 100px;
     }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-col {
+        margin-bottom: 20px;
+    }
+    .footer-col-links ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 20px;
+    }
+    .footer-col-links ul li {
+        margin-bottom: 0;
+    }
+    /* Mobile order */
+    .footer-col-info { order: 1; }
+    .footer-col-social { order: 2; }
+    .footer-col-links { order: 3; }
 }
 
 
-/* For screens larger than 768px (tablets and desktops) */
 @media (min-width: 768px) {
     .header-container {
-        flex-direction: row; /* Ensure elements are in a row */
+        flex-direction: row;
     }
 
     .logo {
@@ -625,12 +664,12 @@ h2::after {
 
     .search-bar {
         margin-bottom: 0;
-        width: auto; /* Reset width */
-        max-width: none; /* Reset max-width */
+        width: auto;
+        max-width: none;
     }
 
     .hero-content h1 {
-        font-size: 4em; /* Larger heading on desktop */
+        font-size: 4em;
     }
 
     .hero-content p {
@@ -647,60 +686,85 @@ h2::after {
         font-size: 2.5em;
     }
 
-    /* Desktop layout for article cards */
     .articles-grid {
-        grid-template-columns: repeat(2, 1fr); /* Default to 2 columns on larger screens */
-        max-width: 100%; /* Ensure grid takes full container width */
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
     }
 
-    /* Special style for the "Latest Article" (first section) */
     .latest-article-section .articles-grid {
-        grid-template-columns: 1fr; /* Keep the latest article full width */
-        max-width: 900px; /* Constrain the width for a prominent single article */
-        margin: 0 auto; /* Center it */
+        grid-template-columns: 1fr;
+        max-width: 900px;
+        margin: 0 auto;
     }
 
     .latest-article-section .article-card {
-        flex-direction: row; /* Image and content side-by-side for the latest article */
-        align-items: stretch; /* Stretch content to fill height */
+        flex-direction: row;
+        align-items: stretch;
     }
 
     .latest-article-section .article-image {
-        width: 40%; /* Image takes 40% of the card width */
-        height: auto; /* Auto height to maintain aspect ratio within flex container */
+        width: 40%;
+        height: auto;
     }
 
     .latest-article-section .article-content {
-        width: 60%; /* Content takes 60% of the card width */
-        display: flex; /* Use flex to align content within its container */
+        width: 60%;
+        display: flex;
         flex-direction: column;
-        justify-content: center; /* Center content vertically if space allows */
+        justify-content: center;
     }
     .latest-article-section .article-content h3 {
-        font-size: 1.8em; /* Larger title for main article */
+        font-size: 1.8em;
+    }
+
+    /* Footer: 3-column layout for desktop */
+    .footer-content {
+        grid-template-columns: 1.5fr 1fr 1.5fr; /* Adjust column widths */
+        text-align: left; /* Default alignment for columns */
+        align-items: flex-start; /* Align items to top within grid cells */
+    }
+    .footer-col {
+        align-items: flex-start; /* Align contents of each column to the start (left) */
+        margin-bottom: 0;
+        padding: 0 10px; /* Added internal padding to pull content away from grid cell edges */
+    }
+    .footer-col-info {
+        /* Logo and email align left (default flex-start) */
+    }
+    .footer-col-social {
+        text-align: center; /* Center social icons and copyright */
+        align-items: center; /* Center flex items horizontally */
+    }
+    .footer-col-links {
+        text-align: right; /* Align links to right */
+        align-items: flex-end; /* Align flex items to right */
+    }
+    .footer-col-links ul {
+        display: block;
+        padding: 0;
+    }
+    .footer-col-links ul li {
+        margin-bottom: 10px;
     }
 }
 
-/* For even larger screens (e.g., larger desktops, 3 columns for general articles) */
 @media (min-width: 1024px) {
     .articles-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns for all general article grids */
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    /* Ensure the latest article remains prominent and single column */
     .latest-article-section .articles-grid {
-        grid-template-columns: 1fr; /* Override back to 1 column for latest */
-        max-width: 900px; /* Keep constrained width */
+        grid-template-columns: 1fr;
+        max-width: 900px;
         margin: 0 auto;
     }
 }
 
-/* For screens larger than 1200px (to fully utilize max-width on .container) */
 @media (min-width: 1200px) {
     .articles-grid {
-        grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns */
+        grid-template-columns: repeat(3, 1fr);
     }
     .latest-article-section .articles-grid {
-        max-width: 900px; /* Consistent max width for latest */
+        max-width: 900px;
     }
 }

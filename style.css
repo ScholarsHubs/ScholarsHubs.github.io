@@ -693,11 +693,11 @@ h2::after {
         font-size: 1.8em;
     }
 
-    /* Footer: 3-column layout for desktop (reverted from 4) */
+    /* Footer: 3-column layout for desktop */
     .footer-content {
         grid-template-columns: 1.5fr 1fr 1.5fr; /* 3 columns now */
         text-align: center; /* Center content of the grid overall */
-        align-items: flex-start; /* Align columns to the top */
+        align-items: center; /* Vertically center all columns within the footer grid area */
         gap: 20px;
     }
     .footer-col {

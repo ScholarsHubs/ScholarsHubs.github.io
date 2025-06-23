@@ -469,8 +469,10 @@ h2::after {
 
 /* ==================== FOOTER STYLES ==================== */
 .main-footer {
-    background-color: var(--dark-purple); /* Dark purple footer background */
-    color: var(--white);
+    /* UPDATED: Footer background color to DARK PURPLE */
+    background-color: var(--dark-purple);
+    /* UPDATED: Default text color to LIGHT LILAC for all elements */
+    color: var(--light-lilac);
     padding: 40px 0;
     text-align: center;
 }
@@ -481,11 +483,12 @@ h2::after {
     align-items: center;
 }
 
-.footer-logo {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    font-family: 'Montserrat', sans-serif; /* Apply Montserrat to footer logo */
+/* Styles for the footer logo image */
+.footer-logo-image {
+    height: 120px; /* Adjust this height to match your desired size for the footer logo */
+    width: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure it behaves as a block */
+    margin: 0 auto 15px auto; /* Center it and add space below */
 }
 
 .main-footer p {
@@ -505,7 +508,11 @@ h2::after {
 .social-links img {
     width: 28px; /* Size for social icons */
     height: 28px;
-    /* filter: invert(100%);  Remove this if your icons are already white or you download white ones */
+    /* IMPORTANT: Removed filter: invert(100%);
+       If your social icons are dark, they will be hard to see on dark purple.
+       You need to replace the image src with light-colored (e.g., light purple or white) icons,
+       or use an SVG/font icon library that allows coloring via CSS 'color' property.
+    */
     transition: transform 0.2s ease;
 }
 
@@ -531,8 +538,8 @@ h2::after {
 }
 
 .footer-links li a {
-    color: var(--white);
-    font-size: 0.95em;
+    color: var(--light-lilac); /* Using lighter lilac for footer links */
+    text-decoration: none;
     opacity: 0.9;
 }
 
@@ -598,6 +605,10 @@ h2::after {
     }
     .article-image {
         height: 200px; /* Keep fixed height for mobile images */
+    }
+
+    .footer-logo-image {
+        height: 100px; /* Slightly smaller on mobile */
     }
 }
 

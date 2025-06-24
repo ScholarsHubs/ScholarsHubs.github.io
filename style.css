@@ -14,6 +14,9 @@ html {
     --white: #ffffff;
     --dark-text: #333;
     --light-gray-text: #666; /* Keeping for general content */
+    --article-meta-color: #777; /* Slightly darker grey for meta info */
+    --sidebar-bg: #f9f9f9; /* Very light background for sidebar */
+    --sidebar-border: #eee; /* Light border for sidebar sections */
 }
 
 * {
@@ -25,6 +28,7 @@ html {
 body {
     width: 100%; /* Ensure body takes full width */
     font-family: 'Roboto', sans-serif; /* Use Roboto for general text */
+    font-size: 18px; /* Base font size for readability */
     line-height: 1.6;
     color: var(--dark-text);
     background-color: #f8f8f8; /* Light background for the overall page */
@@ -47,51 +51,85 @@ ul {
 
 /* ==================== HEADER STYLES ==================== */
 .main-header {
-    /* Using rgba for 95% opacity of --dark-purple (for "floating" effect) */
     background-color: rgba(106, 13, 173, 0.95);
-    padding: 15px 0;
+    padding: 15px 0; /* Default padding for header */
     color: var(--white);
-    position: sticky; /* Makes header stick to top on scroll */
+    position: sticky;
     top: 0;
-    z-index: 1000; /* Ensures header is above other content */
+    z-index: 1000;
+    transition: padding 0.3s ease, background-color 0.3s ease; /* Smooth transition for shrinking */
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    flex-wrap: wrap;
+    transition: all 0.3s ease; /* Smooth transition for content inside header */
 }
+
+/* Shrinking Header Styles (NEW) */
+.main-header.shrink {
+    padding: 8px 0; /* Reduced padding when shrunk */
+    background-color: var(--dark-purple); /* Solid dark purple when shrunk */
+}
+
+.main-header.shrink .logo-icon {
+    height: 35px; /* Smaller icon when shrunk */
+    margin-bottom: 0;
+}
+
+.main-header.shrink .logo-text {
+    font-size: 1em; /* Smaller text when shrunk */
+    letter-spacing: 0.5px;
+}
+
+.main-header.shrink .logo-text.sub-text {
+    font-size: 0.7em; /* Even smaller sub-text when shrunk */
+    letter-spacing: 1px;
+}
+
+.main-header.shrink .search-bar {
+    transform: scale(0.9); /* Slightly shrink search bar */
+}
+
+.main-header.shrink .hamburger-menu {
+    font-size: 25px; /* Slightly smaller hamburger */
+}
+
 
 .logo a {
     text-decoration: none;
-    display: flex; /* Use flexbox to arrange icon and text */
-    flex-direction: column; /* Stack them vertically */
-    align-items: center; /* Center horizontally within the column */
-    color: var(--white); /* Ensure the text is white */
-    font-family: 'Montserrat', sans-serif; /* Keep Montserrat for the logo text */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Keep shadow for readability */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .logo-icon {
-    height: 45px; /* Adjust the display height of your icon. Start with 45px and fine-tune. */
-    width: auto; /* Maintain aspect ratio */
-    margin-bottom: 2px; /* Small space between icon and text */
+    height: 45px;
+    width: auto;
+    margin-bottom: 2px;
+    transition: all 0.3s ease; /* Smooth transition for logo icon */
 }
 
 .logo-text {
-    font-size: 1.2em; /* Adjust font size for "SCHOLARS" (e.g., 1.2em to 1.5em) */
-    font-weight: 700; /* Use Montserrat Bold as per your logo design */
-    text-transform: uppercase; /* Makes text uppercase */
-    white-space: nowrap; /* Prevent logo text from breaking */
-    letter-spacing: 1px; /* Add slight letter spacing if it matches your design */
+    font-size: 1.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    transition: all 0.3s ease; /* Smooth transition for logo text */
 }
 
-.logo-text.sub-text { /* Style for the "HUBS" part */
-    font-size: 0.8em; /* Smaller size for "HUBS" as in your design */
-    margin-top: -3px; /* Pull it slightly closer to "SCHOLARS" */
-    letter-spacing: 2px; /* Slightly more spaced out for "HUBS" */
-    font-weight: 400; /* Lighter weight for "HUBS" if desired */
+.logo-text.sub-text {
+    font-size: 0.8em;
+    margin-top: -3px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    transition: all 0.3s ease; /* Smooth transition for logo sub-text */
 }
 
 
@@ -102,21 +140,22 @@ ul {
 
 .search-bar {
     display: flex;
-    background-color: var(--white); /* White background for search input */
+    background-color: var(--white);
     border-radius: 5px;
     overflow: hidden;
     margin-right: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Add a subtle shadow */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease; /* Smooth transition for search bar */
 }
 
 .search-bar input {
     border: none;
     padding: 8px 10px;
     font-size: 16px;
-    outline: none; /* Remove outline on focus */
+    outline: none;
     color: var(--dark-text);
-    flex-grow: 1; /* Allows input to take available space */
-    min-width: 100px; /* Ensures input doesn't get too small */
+    flex-grow: 1;
+    min-width: 100px;
 }
 
 .search-bar button {
@@ -124,7 +163,7 @@ ul {
     border: none;
     cursor: pointer;
     padding: 8px 10px;
-    font-size: 20px; /* Size for unicode icon */
+    font-size: 20px;
     color: var(--dark-text);
     display: flex;
     align-items: center;
@@ -137,27 +176,27 @@ ul {
     color: var(--white);
     font-size: 30px;
     cursor: pointer;
-    display: block; /* Always visible for mobile-first approach */
+    display: block;
+    transition: all 0.3s ease; /* Smooth transition for hamburger */
 }
 
 /* ==================== MOBILE NAVIGATION SIDBAR STYLES ==================== */
 .mobile-nav-sidebar {
     position: fixed;
     top: 0;
-    right: -300px; /* Initially off-screen */
-    width: 280px; /* Width of the sidebar */
+    right: -300px;
+    width: 280px;
     height: 100%;
-    /* Lighter background for the sidebar, using lilac */
     background-color: var(--light-lilac);
     box-shadow: -2px 0 5px rgba(0,0,0,0.2);
-    transition: right 0.3s ease-in-out; /* Smooth transition */
-    z-index: 2000; /* Above header */
-    padding-top: 60px; /* Space from top */
-    overflow-y: auto; /* Enable scrolling if content overflows */
+    transition: right 0.3s ease-in-out;
+    z-index: 2000;
+    padding-top: 60px;
+    overflow-y: auto;
 }
 
 .mobile-nav-sidebar.active {
-    right: 0; /* Slide in */
+    right: 0;
 }
 
 .close-nav {
@@ -184,11 +223,11 @@ ul {
     font-size: 18px;
     display: block;
     padding: 8px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.1); /* Subtle separator */
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .mobile-nav-sidebar ul li a:hover {
-    color: var(--primary-purple); /* Using primary purple on hover */
+    color: var(--primary-purple);
 }
 
 .has-submenu .arrow-down {
@@ -201,7 +240,7 @@ ul {
 }
 
 .submenu {
-    display: none; /* Initially hidden */
+    display: none;
     padding-left: 15px;
     margin-top: 10px;
     border-top: 1px solid rgba(0,0,0,0.05);
@@ -209,7 +248,7 @@ ul {
 }
 
 .submenu.active {
-    display: block; /* Show when active */
+    display: block;
 }
 
 .submenu li {
@@ -218,41 +257,39 @@ ul {
 
 .submenu li a {
     font-size: 16px;
-    border-bottom: none; /* No extra border for sub-items */
+    border-bottom: none;
 }
 
 
 /* ==================== HERO SECTION STYLES ==================== */
 .hero-section {
-    /* New background image URL (more like the screenshot) */
-    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), /* Darker overlay for contrast */
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
                 url('https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcwMzV8MHwxfHNlYXJjaHw3fHdvcmtpbmd8ZW58MHx8fHwxNzE4OTkxNjcyfDA&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
     color: var(--white);
     padding: 100px 0;
     text-align: center;
     position: relative;
-    /* Removed filter: brightness(0.8) blur(1px); as the linear-gradient handles overlay */
 }
 
 .hero-content {
-    position: relative; /* Bring content above the overlay */
+    position: relative;
     z-index: 2;
-    max-width: 800px; /* Limit content width for readability */
+    max-width: 800px;
 }
 
 .hero-content h1 {
-    font-family: 'Montserrat', sans-serif; /* Apply Montserrat to H1 */
-    font-size: 3em; /* Adjusted for mobile-first */
-    font-weight: 700; /* Bold */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    font-weight: 700;
     margin-bottom: 20px;
     line-height: 1.1;
 }
 
 .hero-content p {
-    font-size: 1.1em; /* Adjusted for mobile-first */
-    font-weight: 300; /* Lighter for description */
+    font-size: 1.1em;
+    font-weight: 300;
     margin-bottom: 30px;
-    max-width: 600px; /* Limit paragraph width */
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -262,21 +299,21 @@ ul {
     padding: 0;
     margin-bottom: 40px;
     display: flex;
-    flex-direction: column; /* Stack checklist items on mobile */
+    flex-direction: column;
     align-items: center;
-    gap: 10px 0; /* Spacing between stacked items */
+    gap: 10px 0;
 }
 
 .hero-checklist li {
     font-size: 1.1em;
-    font-weight: 700; /* Keep bold for checklist */
+    font-weight: 700;
     text-transform: uppercase;
     display: flex;
     align-items: center;
 }
 
 .hero-checklist li span {
-    color: var(--light-lilac); /* Using lilac for checkmark color */
+    color: var(--light-lilac);
     font-size: 1.5em;
     margin-right: 8px;
 }
@@ -293,40 +330,40 @@ ul {
 
 .btn-explore {
     display: inline-block;
-    background-color: var(--accent-purple); /* Accent purple for button */
+    background-color: var(--accent-purple);
     color: var(--white);
     padding: 15px 30px;
     border-radius: 5px;
     font-size: 1.1em;
-    font-weight: 700; /* Keep bold for button */
+    font-weight: 700;
     text-transform: uppercase;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add transition for shadow */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Stronger shadow for the button */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .btn-explore:hover {
-    background-color: var(--primary-purple); /* Darker purple on hover */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Slightly larger shadow on hover */
+    background-color: var(--primary-purple);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
 
 /* --- ADDED ANIMATION KEYFRAMES AND STYLES --- */
 @keyframes slideInFromBottom {
     0% {
-        transform: translateY(50px); /* Start 50px below its final position */
-        opacity: 0; /* Start completely transparent */
+        transform: translateY(50px);
+        opacity: 0;
     }
     100% {
-        transform: translateY(0); /* End at its original vertical position */
-        opacity: 1; /* End fully opaque */
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
 /* Applying Animations with Staggered Delays */
 .animated-element {
-    opacity: 0; /* Hide elements initially */
-    transform: translateY(50px); /* Position them off-screen initially */
-    animation: slideInFromBottom 0.8s ease-out forwards; /* Base animation */
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideInFromBottom 0.8s ease-out forwards;
 }
 
 /* Individual delays for a staggered effect - these override/add to base animated-element */
@@ -351,21 +388,24 @@ ul {
     /* Delay is applied directly in HTML */
 }
 
-/* ==================== MAIN CONTENT AREA ==================== */
+/* ==================== MAIN CONTENT AREA (Homepage Sections) ==================== */
 .main-content-area {
     padding: 40px 0;
     background-color: var(--white);
-    width: 100%; /* Explicitly ensure it takes full width */
+    width: 100%;
 }
 
 .latest-article-section,
-.most-popular-section {
-    margin-bottom: 50px;
+.most-popular-section,
+.explore-more-section, /* Added for new section */
+.category-listing-section, /* Added for category pages */
+.article-detail-section /* Added for article pages */ {
+    margin-bottom: 50px; /* Consistent spacing between major sections */
 }
 
 h2 {
-    font-family: 'Montserrat', sans-serif; /* Apply Montserrat to H2 */
-    font-size: 2em; /* Adjusted for mobile-first */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
     color: var(--dark-text);
     text-align: center;
     margin-bottom: 30px;
@@ -381,72 +421,72 @@ h2::after {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background-color: var(--primary-purple); /* Using primary purple */
+    background-color: var(--primary-purple);
 }
 
-/* ==================== ARTICLE CARD STYLES ==================== */
+/* ==================== ARTICLE CARD STYLES (Homepage & Category Pages) ==================== */
 .articles-grid {
-    display: grid; /* Use CSS Grid for layout */
-    gap: 30px; /* Space between cards */
+    display: grid;
+    gap: 30px;
     grid-template-columns: 1fr; /* Default to single column on mobile */
 }
 
 .article-card {
     background-color: var(--white);
     border-radius: 8px;
-    overflow: hidden; /* Ensures image corners match card corners */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Subtle "floating" shadow */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    display: flex; /* For image and content side-by-side on mobile */
-    flex-direction: column; /* Stack image and content on mobile initially */
-    text-align: left; /* Align text within card */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
 }
 
 .article-card:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 8px 15px rgba(0,0,0,0.15); /* More pronounced shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
 
 .article-image {
     position: relative;
-    width: 100%; /* Full width image for mobile card */
-    height: 200px; /* Fixed height for consistency */
+    width: 100%;
+    height: 200px;
     overflow: hidden;
-    flex-shrink: 0; /* Prevent image from shrinking on flex container */
+    flex-shrink: 0;
 }
 
 .article-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures image covers the area without distortion */
-    display: block; /* Remove extra space below image */
+    object-fit: cover;
+    display: block;
 }
 
 .category-tag {
     position: absolute;
     top: 15px;
     left: 15px;
-    background-color: var(--accent-purple); /* Using accent purple */
+    background-color: var(--accent-purple);
     color: var(--white);
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 0.8em;
     font-weight: bold;
     text-transform: uppercase;
-    z-index: 10; /* Ensure it's above the image */
+    z-index: 10;
 }
 
 .article-content {
     padding: 20px;
-    flex-grow: 1; /* Allows content to take available space */
+    flex-grow: 1;
 }
 
 .article-content h3 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5em; /* Article title size */
+    font-size: 1.5em;
     font-weight: 700;
     margin-bottom: 10px;
-    color: var(--dark-purple); /* Darker title color */
+    color: var(--dark-purple);
 }
 
 .article-content p {
@@ -457,7 +497,7 @@ h2::after {
 
 .read-more {
     display: inline-block;
-    color: var(--primary-purple); /* Using primary purple for links */
+    color: var(--primary-purple);
     font-weight: bold;
     font-size: 0.9em;
     text-transform: uppercase;
@@ -466,6 +506,213 @@ h2::after {
 .read-more:hover {
     text-decoration: underline;
 }
+
+/* ==================== ARTICLE DETAIL PAGE STYLES (NEW) ==================== */
+
+.article-detail-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.article-page-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Stack columns on mobile by default */
+    gap: 40px;
+}
+
+.article-main-content {
+    /* Main article content column */
+}
+
+/* TYPOGRAPHY FOR ARTICLE BODY */
+.article-main-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em; /* Larger title for article pages */
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--dark-text);
+    margin-bottom: 15px;
+}
+
+.article-meta {
+    font-size: 0.9em;
+    color: var(--article-meta-color);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.article-main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 40px;
+    border-radius: 8px;
+}
+
+.article-body {
+    font-size: 1.1em; /* Readable body text size */
+    line-height: 1.8; /* Generous line height for readability */
+    color: var(--dark-text);
+}
+
+.article-body p {
+    margin-bottom: 1.2em; /* Space between paragraphs */
+}
+
+.article-body h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em; /* Prominent subheadings */
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-top: 1.8em; /* Space above H2 */
+    margin-bottom: 0.8em; /* Space below H2 */
+    text-align: left;
+}
+
+.article-body h2::after {
+    display: none; /* Hide the underline for H2s in article body */
+}
+
+.article-body h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4em; /* Smaller sub-subheadings */
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-top: 1.5em;
+    margin-bottom: 0.6em;
+    text-align: left;
+}
+
+.article-body ul, .article-body ol {
+    margin-left: 25px; /* Indent lists */
+    padding-left: 0;
+    margin-bottom: 1.2em;
+}
+
+.article-body ul li, .article-body ol li {
+    margin-bottom: 0.5em; /* Space between list items */
+}
+
+.article-body ul {
+    list-style: disc; /* Default bullet for unordered lists */
+}
+
+.article-body ol {
+    list-style: decimal; /* Default numbering for ordered lists */
+}
+
+.article-body a {
+    color: var(--primary-purple); /* Ensure internal links are primary purple */
+    text-decoration: underline; /* Underline internal links for clarity */
+}
+.article-body a:hover {
+    color: var(--accent-purple);
+}
+
+/* Sidebar Styles */
+.article-sidebar {
+    background-color: var(--sidebar-bg);
+    border: 1px solid var(--sidebar-border);
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.sidebar-block {
+    margin-bottom: 30px;
+}
+.sidebar-block:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-block h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--dark-purple);
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.sidebar-search-bar {
+    display: flex;
+    margin-bottom: 15px;
+}
+.sidebar-search-bar input {
+    border: 1px solid var(--sidebar-border);
+    border-right: none;
+    padding: 10px;
+    flex-grow: 1;
+    border-radius: 5px 0 0 5px;
+}
+.sidebar-search-bar button {
+    background-color: var(--primary-purple);
+    color: var(--white);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 5px 5px 0;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.sidebar-subscribe p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+.sidebar-subscribe input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--sidebar-border);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.sidebar-subscribe button {
+    width: 100%;
+    background-color: var(--accent-purple);
+    color: var(--white);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.sidebar-subscribe button:hover {
+    background-color: var(--primary-purple);
+}
+
+.sidebar-recent-articles ul li {
+    margin-bottom: 10px;
+}
+.sidebar-recent-articles ul li a {
+    color: var(--dark-text);
+    font-size: 1em;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
+}
+.sidebar-recent-articles ul li a:hover {
+    color: var(--primary-purple);
+    text-decoration: underline;
+}
+
+.article-footer-nav {
+    margin-top: 40px;
+    text-align: right; /* Align "Next Post" to the right */
+}
+.next-article-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-purple);
+    color: var(--white);
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.next-article-link:hover {
+    background-color: var(--accent-purple);
+}
+
 
 /* ==================== FOOTER STYLES ==================== */
 .main-footer {
@@ -626,6 +873,74 @@ h2::after {
     .footer-col-info { order: 1; }
     .footer-col-social { order: 2; }
     .footer-col-links { order: 3; }
+
+    /* Article page mobile stacking */
+    .article-page-layout-grid {
+        grid-template-columns: 1fr; /* Stack columns on mobile */
+    }
+    .article-main-title {
+        font-size: 2em; /* Smaller on mobile */
+    }
+    .article-meta {
+        margin-bottom: 20px;
+    }
+    .article-main-image {
+        margin-bottom: 30px;
+    }
+    .article-body {
+        font-size: 1em;
+    }
+    .article-body p {
+        margin-bottom: 1em;
+    }
+    .article-body h2 {
+        font-size: 1.5em;
+        margin-top: 1.5em;
+        margin-bottom: 0.6em;
+    }
+    .article-body h3 {
+        font-size: 1.2em;
+        margin-top: 1.2em;
+        margin-bottom: 0.5em;
+    }
+    .article-body ul, .article-body ol {
+        margin-left: 20px;
+        margin-bottom: 1em;
+    }
+    .article-body ul li, .article-body ol li {
+        margin-bottom: 0.4em;
+    }
+    .article-sidebar {
+        margin-top: 30px;
+        padding: 20px;
+    }
+    .sidebar-block {
+        margin-bottom: 25px;
+    }
+    .sidebar-block h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    .sidebar-search-bar input, .sidebar-search-bar button {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+    .sidebar-subscribe p {
+        font-size: 0.8em;
+    }
+    .sidebar-subscribe input[type="email"], .sidebar-subscribe button {
+        padding: 8px;
+    }
+    .sidebar-recent-articles ul li a {
+        font-size: 0.9em;
+    }
+    .article-footer-nav {
+        margin-top: 30px;
+    }
+    .next-article-link {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
 }
 
 
@@ -693,29 +1008,27 @@ h2::after {
         font-size: 1.8em;
     }
 
+    /* Article Page Layout for Desktop */
+    .article-page-layout-grid {
+        grid-template-columns: 2.5fr 1fr; /* Main content wider than sidebar */
+        gap: 40px;
+        align-items: flex-start; /* Align content to the top within grid cells */
+    }
+    .article-main-content {
+        padding-right: 20px; /* Padding for visual separation */
+    }
+
     /* Footer: 3-column layout for desktop */
     .footer-content {
-        grid-template-columns: 1.5fr 1fr 1.5fr; /* 3 columns now */
-        text-align: center; /* Center content of the grid overall */
-        align-items: center; /* Vertically center all columns within the footer grid area */
+        grid-template-columns: 1.5fr 1fr 1.5fr;
+        text-align: center;
+        align-items: center;
         gap: 20px;
     }
     .footer-col {
-        align-items: center; /* Center content WITHIN each column */
+        align-items: center;
         margin-bottom: 0;
-        padding: 0 10px; /* Internal padding for content */
-    }
-    /* Removed specific left/right alignments to make all columns centered */
-    .footer-col-info { /* Logo and email column */ }
-    .footer-col-social { /* Social icons and copyright column */ }
-    .footer-col-links { /* Footer links column */ }
-
-    .footer-col-links ul {
-        display: block;
-        padding: 0;
-    }
-    .footer-col-links ul li {
-        margin-bottom: 10px;
+        padding: 0 10px;
     }
 }
 

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeNavButton = document.querySelector('.close-nav');
     const hasSubmenu = document.querySelector('.has-submenu');
     const submenu = document.querySelector('.submenu');
+    const mainHeader = document.querySelector('.main-header'); // Get the header element
 
     // Toggle mobile navigation sidebar
     if (hamburgerMenu && mobileNavSidebar && closeNavButton) {
@@ -25,6 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             hasSubmenu.classList.toggle('open');
             submenu.classList.toggle('active');
+        });
+    }
+
+    // Shrinking Header on Scroll (NEW FUNCTIONALITY)
+    if (mainHeader) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { // If scrolled more than 50px
+                mainHeader.classList.add('shrink');
+            } else {
+                mainHeader.classList.remove('shrink');
+            }
         });
     }
 

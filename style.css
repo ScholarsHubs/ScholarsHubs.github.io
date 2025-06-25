@@ -68,34 +68,34 @@ ul {
     transition: all 0.3s ease; /* Smooth transition for content inside header */
 }
 
-/* Shrinking Header Styles (UPDATED) */
+/* Shrinking Header Styles (REVERTED TO PREVIOUS WORKING STATE) */
 .main-header.shrink {
-    padding: 5px 0; /* MORE Reduced padding when shrunk */
+    padding: 5px 0; /* Reduced padding for compact header */
     background-color: var(--dark-purple); /* Solid dark purple when shrunk */
 }
 
 .main-header.shrink .logo-icon {
-    height: 30px; /* EVEN Smaller icon when shrunk */
+    height: 30px; /* Shrink logo icon */
     margin-bottom: 0;
 }
 
 .main-header.shrink .logo-text {
-    font-size: 0.9em; /* EVEN Smaller text when shrunk */
+    font-size: 0.9em; /* Shrink logo text */
     letter-spacing: 0.5px;
 }
 
 .main-header.shrink .logo-text.sub-text {
-    font-size: 0.6em; /* EVEN Smaller sub-text when shrunk */
+    font-size: 0.6em; /* Shrink logo sub-text */
     letter-spacing: 1px;
 }
 
 .main-header.shrink .search-bar {
-    transform: scale(0.8); /* MORE Shrink search bar */
+    transform: scale(0.8); /* Shrink search bar */
     margin-right: 5px; /* Adjust margin */
 }
 
 .main-header.shrink .hamburger-menu {
-    font-size: 20px; /* EVEN Smaller hamburger */
+    font-size: 20px; /* Shrink hamburger icon */
 }
 
 
@@ -793,16 +793,16 @@ h2::after {
     text-decoration: underline;
 }
 
-/* ==================== MEDIA QUERIES (Responsiveness) ==================== */
+/* ==================== MEDIA QUERIES (Responsive) ==================== */
 
 @media (max-width: 767px) {
     .header-container {
-        flex-direction: column;
+        flex-direction: column; /* Default: stacked */
         text-align: center;
     }
 
     .logo {
-        margin-bottom: 5px; /* Even tighter spacing */
+        margin-bottom: 5px;
     }
 
     .nav-icons {
@@ -813,25 +813,25 @@ h2::after {
 
     .search-bar {
         margin-right: 0;
-        margin-bottom: 5px; /* Even tighter spacing */
+        margin-bottom: 5px;
         width: 100%;
-        max-width: 250px; /* Slightly smaller */
+        max-width: 250px;
     }
 
     .search-bar input {
         flex-grow: 1;
-        padding: 6px 8px; /* Smaller input */
-        font-size: 0.85em; /* Smaller text */
+        padding: 6px 8px;
+        font-size: 0.85em;
     }
 
     .search-bar button {
-        padding: 6px 8px; /* Smaller button */
-        font-size: 1em; /* Smaller icon */
+        padding: 6px 8px;
+        font-size: 1em;
     }
 
     .hamburger-menu {
-        margin-top: 2px; /* Tighter spacing */
-        font-size: 24px; /* Smaller icon */
+        margin-top: 2px;
+        font-size: 24px;
     }
 
     .hero-content h1 {
@@ -858,36 +858,36 @@ h2::after {
         height: 200px;
     }
 
-    /* Footer mobile height reduction (AGGRESSIVE) */
+    /* Footer mobile height reduction */
     .footer-logo-image {
-        height: 60px; /* Current mobile logo height */
+        height: 60px;
         margin-bottom: 5px;
     }
     .main-footer {
-        padding: 10px 0; /* Current mobile padding */
+        padding: 10px 0;
     }
     .main-footer p {
-        font-size: 0.8em; /* Further reduced font size */
-        margin-bottom: 1px; /* Even tighter spacing */
+        font-size: 0.8em;
+        margin-bottom: 1px;
     }
     .social-links {
-        margin: 5px 0; /* Further reduced spacing */
+        margin: 5px 0;
     }
     .social-links img {
-        width: 20px; /* EVEN Smaller icons */
+        width: 20px;
         height: 20px;
     }
     .copyright {
-        font-size: 0.75em; /* Further reduced font size */
+        font-size: 0.75em;
     }
     .footer-col {
-        margin-bottom: 5px; /* Further reduced spacing between columns */
+        margin-bottom: 5px;
     }
     .footer-col-links ul {
-        gap: 2px 5px; /* VERY TIGHT spacing */
+        gap: 2px 5px;
     }
     .footer-col-links ul li a {
-        font-size: 0.8em; /* Further reduced font size */
+        font-size: 0.8em;
     }
 
     .footer-content {
@@ -1063,6 +1063,17 @@ h2::after {
         align-items: center;
         margin-bottom: 0;
         padding: 0 10px;
+    }
+    .footer-col-info {}
+    .footer-col-social {}
+    .footer-col-links {}
+
+    .footer-col-links ul {
+        display: block;
+        padding: 0;
+    }
+    .footer-col-links ul li {
+        margin-bottom: 10px;
     }
 }
 

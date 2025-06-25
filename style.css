@@ -17,6 +17,8 @@ html {
     --article-meta-color: #777; /* Slightly darker grey for meta info */
     --sidebar-bg: #f9f9f9; /* Very light background for sidebar */
     --sidebar-border: #eee; /* Light border for sidebar sections */
+    --input-border: #ccc; /* Standard border color for inputs */
+    --button-shadow: rgba(0, 0, 0, 0.15); /* Subtle shadow for buttons */
 }
 
 * {
@@ -68,34 +70,29 @@ ul {
     transition: all 0.3s ease; /* Smooth transition for content inside header */
 }
 
-/* Shrinking Header Styles (REVERTED TO PREVIOUS WORKING STATE) */
+/* Shrinking Header Styles */
 .main-header.shrink {
     padding: 5px 0; /* Reduced padding for compact header */
     background-color: var(--dark-purple); /* Solid dark purple when shrunk */
 }
 
-.main-header.shrink .logo-icon {
-    height: 30px; /* Shrink logo icon */
-    margin-bottom: 0;
-}
+/* Logo will NOT shrink, so remove specific shrink styles for it (reverted to default size) */
+/* .main-header.shrink .logo-icon, .main-header.shrink .logo-text, .main-header.shrink .logo-text.sub-text styles were removed to prevent shrinking */
 
-.main-header.shrink .logo-text {
-    font-size: 0.9em; /* Shrink logo text */
-    letter-spacing: 0.5px;
-}
 
-.main-header.shrink .logo-text.sub-text {
-    font-size: 0.6em; /* Shrink logo sub-text */
-    letter-spacing: 1px;
-}
-
+/* Search bar hiding/showing (UPDATED - REVERTED TO PREVIOUS BEHAVIOR) */
 .main-header.shrink .search-bar {
-    transform: scale(0.8); /* Shrink search bar */
-    margin-right: 5px; /* Adjust margin */
+    /* REMOVED: opacity: 0; visibility: hidden; width: 0; margin-right: 0; padding: 0; transform: scale(0); */
+    /* It will now retain its default styling when header shrinks */
+    /* Added a small scale for visual effect when shrinking, can remove if you want absolutely no change */
+    transform: scale(0.9); /* Slight scale to match other shrinking elements, can remove if desired */
+    margin-right: 5px; /* Adjust margin to fit if scaled */
 }
 
+
+/* Hamburger menu sizing in shrink state (adjusted for better fit) */
 .main-header.shrink .hamburger-menu {
-    font-size: 20px; /* Shrink hamburger icon */
+    font-size: 24px; /* Slightly smaller hamburger icon when shrunk */
 }
 
 
@@ -110,14 +107,14 @@ ul {
 }
 
 .logo-icon {
-    height: 45px;
+    height: 45px; /* Default height */
     width: auto;
     margin-bottom: 2px;
     transition: all 0.3s ease;
 }
 
 .logo-text {
-    font-size: 1.2em;
+    font-size: 1.2em; /* Default font size */
     font-weight: 700;
     text-transform: uppercase;
     white-space: nowrap;
@@ -126,7 +123,7 @@ ul {
 }
 
 .logo-text.sub-text {
-    font-size: 0.8em;
+    font-size: 0.8em; /* Default font size */
     margin-top: -3px;
     letter-spacing: 2px;
     font-weight: 400;
@@ -146,7 +143,7 @@ ul {
     overflow: hidden;
     margin-right: 15px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Add transition for smooth showing/hiding */
 }
 
 .search-bar input {
@@ -448,6 +445,16 @@ h2::after {
     box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
 
+/* New: styles for the entire clickable article card link */
+.article-card-link {
+    display: flex; /* Make the link a flex container to arrange image and content */
+    flex-direction: column; /* Stack them vertically */
+    height: 100%; /* Make the link fill the entire card */
+    text-decoration: none; /* Remove underline from the whole card link */
+    color: inherit; /* Inherit text color from parent (article-card) */
+}
+
+
 .article-image {
     position: relative;
     width: 100%;
@@ -496,17 +503,20 @@ h2::after {
     margin-bottom: 15px;
 }
 
-.read-more {
-    display: inline-block;
-    color: var(--primary-purple);
+/* Styles for the visual "Read More" span (NEW) */
+.visual-read-more {
+    display: inline-block; /* Behave like previous link */
+    color: var(--primary-purple); /* Primary purple color */
     font-weight: bold;
     font-size: 0.9em;
     text-transform: uppercase;
+    margin-top: auto; /* Push it to the bottom of the content area */
+    padding-top: 5px; /* Small padding above it */
+}
+.visual-read-more:hover {
+    text-decoration: underline; /* Underline on hover */
 }
 
-.read-more:hover {
-    text-decoration: underline;
-}
 
 /* ==================== ARTICLE DETAIL PAGE STYLES (UPDATED) ==================== */
 
@@ -558,7 +568,11 @@ h2::after {
 }
 
 .article-body p {
-    margin-bottom: 1em; /* Consistent space between paragraphs */
+    margin-bottom: 1.2em; /* Adjusted: Increased space between paragraphs */
+    /* NEW: For readability on wider screens, limit paragraph width */
+    max-width: 750px; /* Optimal line length for readability */
+    margin-left: auto; /* Center paragraphs within the article-body */
+    margin-right: auto;
 }
 
 .article-body h2 {
@@ -566,8 +580,8 @@ h2::after {
     font-size: 1.8em; /* Prominent subheadings */
     font-weight: 700;
     color: var(--dark-text);
-    margin-top: 1.5em; /* Space above H2 */
-    margin-bottom: 0.7em; /* Space below H2 */
+    margin-top: 2em; /* Adjusted: More space above H2 */
+    margin-bottom: 0.8em; /* Adjusted: Slightly more space below H2 */
     text-align: left;
 }
 
@@ -580,8 +594,8 @@ h2::after {
     font-size: 1.3em; /* Smaller sub-subheadings */
     font-weight: 700;
     color: var(--dark-text);
-    margin-top: 1.3em;
-    margin-bottom: 0.5em;
+    margin-top: 1.5em; /* Adjusted: More space above H3 */
+    margin-bottom: 0.6em; /* Adjusted: Slightly more space below H3 */
     text-align: left;
 }
 
@@ -605,10 +619,11 @@ h2::after {
 
 .article-body a {
     color: var(--primary-purple);
-    text-decoration: underline;
+    text-decoration: none; /* REMOVED UNDERLINE */
 }
 .article-body a:hover {
     color: var(--accent-purple);
+    text-decoration: underline; /* Underline only on hover */
 }
 
 /* Sidebar Styles */
@@ -797,7 +812,7 @@ h2::after {
 
 @media (max-width: 767px) {
     .header-container {
-        flex-direction: column; /* Default: stacked */
+        flex-direction: column;
         text-align: center;
     }
 
@@ -834,6 +849,72 @@ h2::after {
         font-size: 24px;
     }
 
+    /* Shrinking Header Mobile-Specific Styles (UPDATED) */
+    .main-header.shrink {
+        padding: 5px 0; /* Minimal padding */
+    }
+
+    .main-header.shrink .header-container {
+        flex-direction: row; /* Layout elements in a row when shrunk */
+        justify-content: space-between; /* Push logo left, others right */
+        align-items: center; /* Vertically center in row */
+        flex-wrap: nowrap; /* Prevent wrapping when shrunk */
+        padding: 0 10px; /* Add horizontal padding inside the container */
+    }
+
+    .main-header.shrink .logo {
+        flex-direction: row; /* Make logo icon and text horizontal when shrunk */
+        align-items: center;
+        margin-bottom: 0;
+        margin-right: 10px; /* Space from search bar */
+    }
+
+    .main-header.shrink .logo-icon {
+        height: 25px; /* Shrink logo icon */
+        margin-bottom: 0;
+        margin-right: 5px; /* Space between shrunk icon and text */
+    }
+
+    .main-header.shrink .logo-text {
+        font-size: 0.7em; /* Shrink logo text */
+        letter-spacing: 0; /* Reduce letter spacing for compactness */
+    }
+
+    .main-header.shrink .logo-text.sub-text {
+        font-size: 0.4em; /* Shrink sub-text to be very small */
+        margin-top: 0; /* Adjust margin for compactness */
+    }
+
+    .main-header.shrink .nav-icons {
+        flex-direction: row; /* Arrange search and hamburger in a row */
+        width: auto; /* Allow content to dictate width */
+        align-items: center;
+        margin-right: 0;
+    }
+
+    .main-header.shrink .search-bar {
+        flex-grow: 0; /* Prevent search bar from taking too much space */
+        max-width: 120px; /* Limit search bar width in shrunk state */
+        margin-right: 5px; /* Space between search and hamburger */
+        transform: scale(1); /* Ensure it's not scaled down by general shrink rule */
+        padding: 0; /* Remove internal padding if scaled by container */
+    }
+
+    .main-header.shrink .search-bar input {
+        padding: 4px 6px; /* Smaller padding for input */
+        font-size: 0.7em; /* Smaller font for input text */
+    }
+
+    .main-header.shrink .search-bar button {
+        padding: 4px 6px; /* Smaller padding for button */
+        font-size: 0.8em; /* Smaller icon size for button */
+    }
+
+    .main-header.shrink .hamburger-menu {
+        font-size: 20px; /* Adjust hamburger size */
+        margin-top: 0;
+    }
+    
     .hero-content h1 {
         font-size: 2.5em;
     }

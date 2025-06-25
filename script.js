@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Shrinking Header on Scroll (NEW FUNCTIONALITY)
+    // Shrinking Header on Scroll (This is the JavaScript part)
     if (mainHeader) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) { // If scrolled more than 50px

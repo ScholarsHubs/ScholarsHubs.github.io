@@ -860,34 +860,34 @@ h2::after {
 
     /* Footer mobile height reduction (AGGRESSIVE) */
     .footer-logo-image {
-        height: 60px; /* EVEN Smaller */
-        margin-bottom: 5px; /* Tighter spacing */
+        height: 60px; /* Current mobile logo height */
+        margin-bottom: 5px;
     }
     .main-footer {
-        padding: 10px 0; /* MORE Reduced padding */
+        padding: 10px 0; /* Current mobile padding */
     }
     .main-footer p {
-        font-size: 0.85em; /* Smaller text */
-        margin-bottom: 2px; /* Tighter spacing */
+        font-size: 0.8em; /* Further reduced font size */
+        margin-bottom: 1px; /* Even tighter spacing */
     }
     .social-links {
-        margin: 10px 0; /* Reduced spacing */
+        margin: 5px 0; /* Further reduced spacing */
     }
     .social-links img {
-        width: 24px; /* Smaller icons */
-        height: 24px;
+        width: 20px; /* EVEN Smaller icons */
+        height: 20px;
     }
     .copyright {
-        font-size: 0.8em; /* Smaller text */
+        font-size: 0.75em; /* Further reduced font size */
     }
     .footer-col {
-        margin-bottom: 10px; /* Reduced spacing between columns */
+        margin-bottom: 5px; /* Further reduced spacing between columns */
     }
     .footer-col-links ul {
-        gap: 5px 10px; /* Tighter spacing */
+        gap: 2px 5px; /* VERY TIGHT spacing */
     }
     .footer-col-links ul li a {
-        font-size: 0.85em; /* Smaller text */
+        font-size: 0.8em; /* Further reduced font size */
     }
 
     .footer-content {
@@ -1063,17 +1063,6 @@ h2::after {
         align-items: center;
         margin-bottom: 0;
         padding: 0 10px;
-    }
-    .footer-col-info {}
-    .footer-col-social {}
-    .footer-col-links {}
-
-    .footer-col-links ul {
-        display: block;
-        padding: 0;
-    }
-    .footer-col-links ul li {
-        margin-bottom: 10px;
     }
 }
 

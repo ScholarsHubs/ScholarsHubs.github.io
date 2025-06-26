@@ -17,8 +17,6 @@ html {
     --article-meta-color: #777; /* Slightly darker grey for meta info */
     --sidebar-bg: #f9f9f9; /* Very light background for sidebar */
     --sidebar-border: #eee; /* Light border for sidebar sections */
-    --input-border: #ccc; /* Standard border color for inputs */
-    --button-shadow: rgba(0, 0, 0, 0.15); /* Subtle shadow for buttons */
 }
 
 * {

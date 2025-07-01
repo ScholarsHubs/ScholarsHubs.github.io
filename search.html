@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search results for Scholars Hubs. Find articles, courses, and opportunities.">
+    <meta name="keywords" content="search, scholars hubs, articles, courses, scholarships, results">
+    <meta name="author" content="Your Name or Company Name">
+    <title>Search Results - Scholars Hubs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/scholarshub-icon-white.png" alt="Scholars Hubs Logo Icon" class="logo-icon">
+                    <span class="logo-text">SCHOLARS</span>
+                    <span class="logo-text sub-text">HUBS</span>
+                </a>
+            </div>
+            <div class="nav-icons">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit" aria-label="Search">&#128269;</button> </div>
+                <button class="hamburger-menu" aria-label="Toggle navigation">
+                    &#9776; </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content-area">
+        <section class="search-results-section container">
+            <h2>SEARCH RESULTS FOR: <span id="search-query-display"></span></h2>
+            
+            <div id="search-results-list">
+                <p>Your search results will appear here. (Currently, this page is a placeholder.)</p>
+                <p>To implement dynamic search results, you would need to add JavaScript to parse the query from the URL and then search through your content data (e.g., from a JSON file or a backend).</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-col footer-col-info">
+                <img src="images/scholarshub-icon-coloured.png" alt="Scholars Hubs Logo" class="footer-logo-image">
+                <p><a href="mailto:hello.scholarshubs@outlook.com">hello.scholarshubs@outlook.com</a></p>
+            </div>
+
+            <div class="footer-col footer-col-social">
+                <div class="social-links">
+                    <a href="https://www.facebook.com/ScholarsHubs1" aria-label="Facebook"><img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/facebook-new.png" alt="Facebook icon"></a>
+                    <a href="https://www.instagram.com/scholarshubs" aria-label="Instagram"><img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/instagram-new.png" alt="Instagram icon"></a>
+                    <a href="https://pin.it/5t2b1j5PY" aria-label="Pinterest"><img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/pinterest--v1.png" alt="Pinterest icon"></a>
+                    <a href="https://scholarshubs-official.blogspot.com" aria-label="Blogger"><img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/blogger.png" alt="Blogger icon"></a>
+                    <a href="https://x.com/ScholarsHubs" aria-label="Twitter (X)"><img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/twitter--v1.png" alt="Twitter X icon"></a>
+                    <a href="https://bsky.app/profile/scholarshubs.bsky.social" aria-label="Bluesky"><img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/domain.png" alt="Bluesky icon"></a>
+                    <a href="https://whatsapp.com/channel/0029Vb0vAEqF6smxOVql7p3R" aria-label="WhatsApp Channel"><img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/whatsapp.png" alt="WhatsApp icon"></a>
+                </div>
+                <p class="copyright">&copy; 2025 ScholarsHubs.net. All rights reserved. (See disclosure)</p>
+            </div>
+
+            <div class="footer-col footer-col-links">
+                <ul>
+                    <li><a href="#">About Scholars Hubs</a></li>
+                    <li><a href="#">Privacy Policy & Affiliate Disclosure</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('query');
+            const searchQueryDisplay = document.getElementById('search-query-display');
+
+            if (searchQueryDisplay && query) {
+                searchQueryDisplay.textContent = `"${query}"`;
+            } else if (searchQueryDisplay) {
+                searchQueryDisplay.textContent = "(No query entered)";
+            }
+        });
+    </script>
+    <script src="script.js"></script> 
+</body>
+</html>

@@ -624,6 +624,43 @@ h2::after {
     text-decoration: underline; /* Underline only on hover */
 }
 
+/* Style for blockquote (quoted statements) */
+.article-body blockquote {
+    font-style: italic;
+    font-size: 1.15em; /* Slightly larger than body text */
+    color: var(--dark-text);
+    border-left: 5px solid var(--primary-purple); /* Purple left border */
+    padding-left: 20px;
+    margin: 2em 0; /* Vertical spacing above/below */
+    background-color: #f8f8f8; /* Very subtle light background */
+    padding: 15px 20px;
+    border-radius: 5px;
+    max-width: 750px; /* Same max-width as paragraphs for consistency */
+    margin-left: auto; /* Center it */
+    margin-right: auto;
+}
+.article-body blockquote footer {
+    font-size: 0.9em;
+    color: var(--light-gray-text);
+    margin-top: 10px;
+}
+.article-body blockquote p {
+    margin-bottom: 0; /* Remove extra margin for paragraphs directly in blockquote */
+}
+
+/* Style for inline quotes */
+.article-body q {
+    quotes: "“" "”" "‘" "’"; /* Defines the quotation marks to use */
+    font-style: italic;
+    color: var(--primary-purple); /* Primary purple for emphasis */
+}
+.article-body q:before {
+    content: open-quote; /* Inserts the opening quote mark */
+}
+.article-body q:after {
+    content: close-quote; /* Inserts the closing quote mark */
+}
+
 /* Sidebar Styles */
 .article-sidebar {
     background-color: var(--sidebar-bg);

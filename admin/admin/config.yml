@@ -1,0 +1,11 @@
+backend:
+  name: git-gateway
+  branch: main # or master, depending on your default branch name
+
+publish_mode: editorial_workflow # Optional: Enables draft/review workflow
+
+media_folder: "static/uploads" # Where uploaded files will be stored, relative to the site root
+public_folder: "/uploads" # The public path for uploaded files in your site
+
+collections:
+  # We will define your "Article" collection here in the next step

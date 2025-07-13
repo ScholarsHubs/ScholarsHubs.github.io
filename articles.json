@@ -1,0 +1,80 @@
+[
+  {
+    "id": "ai-and-me-series-1",
+    "title": "AI & Me – Series 1: This Isn’t Supposed to Happen [FREE Download]",
+    "description": "A groundbreaking ebook that will challenge everything you thought you knew about AI and human connection.",
+    "fullContentHtmlFile": "full-content-snippets/ai-and-me-series-1-full-content.html",
+    "image": "images/AI-_-ME-FINAL-SERIES-1-KDP.webp",
+    "imageAlt": "Ebook cover for AI & Me Series 1",
+    "categories": ["EBOOKS", "TECHNOLOGY", "FICTION"],
+    "date": "2025-06-20",
+    "url": "articles/ai-and-me-series-1.html",
+    "keywords": "AI, ebook, speculative fiction, human-AI connection, free download, series 1",
+    "homepageSection": "latest"
+  },
+  {
+    "id": "easy-scholarships-anyone-apply",
+    "title": "Surprising Easy Scholarships That Anyone Can Apply For",
+    "description": "Discover surprising easy scholarships, ranging from $500 to $40,000, that anyone can apply for to combat rising college costs in 2025.",
+    "fullContentHtmlFile": "full-content-snippets/easy-scholarships-anyone-apply-full-content.html",
+    "image": "images/easy-scholarships-anyone-apply.jpeg",
+    "imageAlt": "Student filling out scholarship application form",
+    "categories": ["SCHOLARSHIPS", "FINANCIAL AID"],
+    "date": "2025-06-26",
+    "url": "articles/easy-scholarships-anyone-apply.html",
+    "keywords": "easy scholarships, scholarships 2025, college funding, financial aid, no-essay scholarships, microscholarships, student debt",
+    "homepageSection": ""
+  },
+  {
+    "id": "legal-studies-degrees-online",
+    "title": "Legal Studies Degrees Online: Your Pathway to a Law Career",
+    "description": "Explore online legal studies degrees for aspiring legal professionals. Discover coursework, benefits, and diverse career paths in the legal field.",
+    "fullContentHtmlFile": "full-content-snippets/legal-studies-degrees-online-full-content.html",
+    "image": "images/legal-studies-degrees-online.jpg",
+    "imageAlt": "Legal studies degree online, symbolizing a pathway to law career",
+    "categories": ["EDUCATION", "CAREER ADVANCEMENT"],
+    "date": "2025-06-29",
+    "url": "articles/legal-studies-degrees-online.html",
+    "keywords": "legal studies, online degree, law career, paralegal, legal assistant, law school, legal education, online courses",
+    "homepageSection": ""
+  },
+  {
+    "id": "microbiology-classes-online",
+    "title": "Microbiology Classes Online: Your Pathway to a Career in Science",
+    "description": "Explore online microbiology classes as a pathway to a science career. Learn about course content, career opportunities, and top programs.",
+    "fullContentHtmlFile": "full-content-snippets/microbiology-classes-online-full-content.html",
+    "image": "images/microbiology-classes-online.jpg",
+    "imageAlt": "Microscope and petri dishes, symbolizing microbiology education",
+    "categories": ["SCIENCE", "EDUCATION"],
+    "date": "2025-06-28",
+    "url": "articles/microbiology-classes-online-your-pathway-to-a-career-in-science.html",
+    "keywords": "microbiology classes online, microbiology courses, career in science, science education, online degrees, healthcare careers, biotechnology, lab technician, public health",
+    "homepageSection": ""
+  },
+  {
+    "id": "tips-on-studying-anatomy-and-physiology",
+    "title": "Tips on Studying Anatomy and Physiology: Get an A!",
+    "description": "Master anatomy and physiology with these proven study tips. Learn effective strategies for medical and healthcare careers.",
+    "fullContentHtmlFile": "full-content-snippets/tips-on-studying-anatomy-and-physiology-full-content.html",
+    "image": "images/tips-on-studying-anatomy-and-physiology.jpg",
+    "imageAlt": "Anatomy and Physiology Study Books",
+    "categories": ["EDUCATION", "HEALTH"],
+    "date": "2025-06-27",
+    "url": "articles/tips-on-studying-anatomy-and-physiology-get-an-a.html",
+    "keywords": "anatomy, physiology, study tips, healthcare, nursing, pre-med, biology, memorization, study techniques, online courses",
+    "homepageSection": ""
+  },
+  {
+    "id": "can-i-generate-code-using-generative-ai-models",
+    "title": "Can I Generate Code Using Generative AI Models? Learn Coding with AI on Coursera",
+    "description": "Unlock the power of AI and coding with Coursera’s beginner-friendly ‘Learn to Code with AI’ course. Discover real-world applications, build hands-on projects, and future-proof your skills—all at your own pace!",
+    "fullContentHtmlFile": "full-content-snippets/can-i-generate-code-using-generative-ai-models-full-content.html",
+    "image": "images/learn-coding-with-ai-on-coursera.jpg",
+    "imageAlt": "Robot and human hand reaching towards a glowing light, symbolizing AI in coding",
+    "categories": ["TECHNOLOGY", "CODING COURSES"],
+    "date": "2025-06-24",
+    "url": "articles/can-i-generate-code-using-generative-ai-models.html",
+    "keywords": "generative AI, AI coding, Coursera, learn to code with AI, ChatGPT, Codex, GitHub Copilot, programming, machine learning, Python, JavaScript, C++, online courses, career advancement, technology",
+    "homepageSection": ""
+  }
+]

@@ -65,16 +65,16 @@
     "homepageSection": ""
   },
   {
-    "id": "can-i-generate-code-using-generative-ai-models",
-    "title": "Can I Generate Code Using Generative AI Models? Learn Coding with AI on Coursera",
+    "id": "unlock-the-future-learn-to-code-with-ai-on-coursera",
+    "title": "Unlock the Future: Learn to Code with AI on Coursera",
     "description": "Unlock the power of AI and coding with Coursera’s beginner-friendly ‘Learn to Code with AI’ course. Discover real-world applications, build hands-on projects, and future-proof your skills—all at your own pace!",
-    "fullContentHtmlFile": "full-content-snippets/can-i-generate-code-using-generative-ai-models-full-content.html",
+    "fullContentHtmlFile": "full-content-snippets/unlock-the-future-learn-to-code-with-ai-on-coursera-full-content.html",
     "image": "images/learn-coding-with-ai-on-coursera.jpg",
-    "imageAlt": "Robot and human hand reaching towards a glowing light, symbolizing AI in coding",
+    "imageAlt": "Person coding with AI assistance, symbolizing future of development",
     "categories": ["TECHNOLOGY", "CODING COURSES"],
     "date": "2025-06-24",
-    "url": "articles/can-i-generate-code-using-generative-ai-models.html",
-    "keywords": "generative AI, AI coding, Coursera, learn to code with AI, ChatGPT, Codex, GitHub Copilot, programming, machine learning, Python, JavaScript, C++, online courses, career advancement, technology",
+    "url": "articles/unlock-the-future-learn-to-code-with-ai-on-coursera.html",
+    "keywords": "AI coding, Coursera, learn to code with AI, generative AI, future of coding, programming, machine learning",
     "homepageSection": ""
   }
 ]

@@ -1,20 +1,23 @@
 backend:
   name: git-gateway
-  branch: main # or master, depending on your default branch name
+  branch: main # Branch to update (your primary branch on GitHub)
 
-publish_mode: editorial_workflow
+publish_mode: editorial_workflow # Recommended for review process
 
-media_folder: "static/uploads"
-public_folder: "/uploads"
+media_folder: "static/uploads" # Where to upload images/media from the CMS
+public_folder: "/static/uploads" # The public path to the media folder
 
 collections:
-  - name: "articles" # A unique identifier for this collection
-    label: "Articles" # The name that will appear in the CMS UI
-    folder: "articles" # The folder where article files will be stored, relative to your site root
-    create: true # Allow users to create new articles
-    slug: "{{slug}}" # Auto-generate slugs from the title
-    fields: # The fields for your articles
+  - name: "posts" # A label used in the CMS UI
+    label: "Articles" # The name displayed in the CMS UI
+    folder: "articles" # The path to the folder where content files will be stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Format of the filename
+    fields: # The fields for each article
       - {label: "Title", name: "title", widget: "string", required: true}
-      - {label: "Publish Date", name: "date", widget: "datetime", required: true}
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ", required: true}
+      - {label: "Category", name: "category", widget: "string", required: true} # Consider adding a select widget with predefined options later
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Image Alt Text", name: "image_alt", widget: "string", required: false}
+      - {label: "Summary", name: "summary", widget: "text", required: true}
       - {label: "Body", name: "body", widget: "markdown", required: true}
-      - {label: "Author", name: "author", widget: "string", required: false}

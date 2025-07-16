@@ -1,14 +1,38 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+    {% include "meta-head.html" %}
+    <title>{{ title }} - Scholars Hubs</title>
 </head>
-
 <body>
-  
-</body>
 
+    {% include "site-header.html" %}
+    {% include "mobile-nav.html" %}
+
+    <main class="main-content-area article-page">
+        <section class="article-detail container">
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title">{{ title }}</h1>
+                    <p class="article-meta">
+                        <span class="article-date">Published: {{ date | date: "%B %d, %Y" }}</span>
+                        <span class="article-category">Category: {{ category }}</span>
+                    </p>
+                    {% if image %}
+                        <div class="article-featured-image">
+                            <img src="{{ image }}" alt="{{ image_alt }}">
+                        </div>
+                    {% endif %}
+                </header>
+                <div class="article-body">
+                    {{ content | safe }}
+                </div>
+            </article>
+        </section>
+    </main>
+
+    {% include "site-footer.html" %}
+    {% include "site-scripts.html" %}
+
+</body>
 </html>
